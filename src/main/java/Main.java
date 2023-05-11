@@ -58,11 +58,11 @@ public class Main {
                 line = BLOBStream.readLine();
                 columns = line.split(";");
                 //remove first INT with count of elements
-                columns[2] = columns[2].substring(10);
-                int elementNumber = columns[2].length() / 16;
+                columns[columns.length-1] = columns[columns.length-1].substring(10);
+                int elementNumber = columns[columns.length-1].length() / 16;
                 double[] array = new double[elementNumber];
                 for (int i = 0; i < elementNumber; i++) {
-                  array[i]=Double.longBitsToDouble(parseUnsignedHex(columns[2].substring(i * 16, (i + 1) * 16)));
+                  array[i]=Double.longBitsToDouble(parseUnsignedHex(columns[columns.length-1].substring(i * 16, (i + 1) * 16)));
                 }
                 if (columns[0].contains("51")) Wavelengths.put(columns[1], array);
                 if (columns[0].contains("52")) Intensities.put(columns[1], array);
