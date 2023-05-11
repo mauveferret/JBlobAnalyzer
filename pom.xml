@@ -91,6 +91,8 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
+                    <finalName>JBLobAnalyzer</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
                 <executions>
                     <execution>
@@ -147,7 +149,7 @@
                                 <preCp>anything</preCp>
                             </classPath>
                             <jre>
-                                <minVersion>11</minVersion>
+                                <minVersion>17</minVersion>
                                 <jdkPreference>jdkOnly</jdkPreference>
                             </jre>
                             <versionInfo>

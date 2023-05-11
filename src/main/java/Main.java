@@ -126,16 +126,16 @@ public class Main {
             outputStream.write(("time,ms   " + LCardChannels.get(Integer.parseInt(columns[0])) + ", V\n").getBytes());
             outputStream.write((outputFileName+"\n").getBytes());
             //remove first INT with count of elements
-            columns[2] = columns[2].substring(10);
+            columns[columns.length-1] = columns[columns.length-1].substring(10);
             String timeValue;
 
             //limit amount of digits in the output
             //new BigDecimal().setScale(4, RoundingMode.UP)
 
-            int elementNumber = columns[2].length()/16;
+            int elementNumber = columns[columns.length-1].length()/16;
             for (int i = 0; i < elementNumber; i++) {
                 timeValue = new BigDecimal(Double.parseDouble(i*integrationTime+"")/elementNumber).setScale(4, RoundingMode.UP)+" "; //ms
-                timeValue+=new BigDecimal(Double.longBitsToDouble(parseUnsignedHex(columns[2].substring(i*16, (i+1)*16)))).setScale(4, RoundingMode.UP)+"\n";
+                timeValue+=new BigDecimal(Double.longBitsToDouble(parseUnsignedHex(columns[columns.length-1].substring(i*16, (i+1)*16)))).setScale(4, RoundingMode.UP)+"\n";
                 outputStream.write(timeValue.getBytes());
             }
             outputStream.close();
