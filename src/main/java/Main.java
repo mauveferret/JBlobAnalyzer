@@ -15,7 +15,6 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-
             //search our location
             String currentJar = Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
             String currentDir = new File(currentJar).getParent();
@@ -45,6 +44,7 @@ public class Main {
             new File(dir.getAbsolutePath()+File.separator +"LCard").mkdir();
             new File(dir.getAbsolutePath()+File.separator +"Avantes").mkdir();
 
+
             dir.mkdir();
             outputPath = dir.getAbsolutePath() + File.separator;
 
@@ -59,6 +59,7 @@ public class Main {
         }
         catch (Exception e) {e.printStackTrace();}
         System.out.println("Finished!");
+        System.exit(0);
     }
 
 
