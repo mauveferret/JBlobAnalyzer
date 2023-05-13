@@ -42,6 +42,10 @@ public class Main {
             //create output dir
             File dir = new File(currentDir + File.separator+"data");
             dir.mkdir();
+            new File(dir.getAbsolutePath()+File.separator +"LCard").mkdir();
+            new File(dir.getAbsolutePath()+File.separator +"Avantes").mkdir();
+
+            dir.mkdir();
             outputPath = dir.getAbsolutePath() + File.separator;
 
             for (String filePath : searching(new File(currentDir))) {
@@ -110,6 +114,7 @@ public class Main {
                     String outputFileName = dataBaseChannels.get(Integer.parseInt(dataColumns[0])) + "_" + dataColumns[1];
                     outputFileName = outputFileName.replace(".", "_").replace(":", "_");
                     File outputFile = new File(outputPath +"LCard"+File.separator+outputFileName + ".dat");
+
                     outputFile.createNewFile(); // if file already exists will do nothing
                     OutputStream outputStream = new FileOutputStream(outputFile, false);
                     //write header
