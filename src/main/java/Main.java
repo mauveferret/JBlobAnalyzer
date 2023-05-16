@@ -1,10 +1,7 @@
 import java.io.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -149,7 +146,8 @@ public class Main {
             outputStream.write((outputFileName+"\n").getBytes());
             outputStream.write("wavelength, nm     Intensity, counts\n".getBytes());
 
-            double[] wavelengthArray = Wavelengths.get(date);
+            HashMap.Entry<String,double[]> entry = Wavelengths.entrySet().iterator().next();
+            double[] wavelengthArray = entry.getValue();
             double[] intensitiesArray = Intensities.get(date);
 
             for (int i=0; i<wavelengthArray.length; i++){
